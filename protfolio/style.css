@@ -312,53 +312,93 @@ img {
   border-radius: 0.5rem;
 }
 
-/* ===== WORK =====*/
-
-
 .work__container {
-  row-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  justify-content: center;
 }
-.work__img {
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
-  border-radius: 0.5rem;
+
+.work__item {
+  position: relative;
+  display: block;
   overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
+
 .work__img img {
-  transition: 1s;
+  width: 100%;
+  height: 350px; /* Fixed height to ensure uniform sizing */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  display: block;
+  border-radius: 10px;
 }
-.work__img img:hover {
-  transform: scale(1.1);
+
+.work__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
 }
-.work__overlay{
- /* Update this value to your desired color */
-  color:purple; /* Text color for overlay */
- 
+
+.work__item:hover .work__overlay {
+  opacity: 1;
+}
+
+.work__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.work__date, .work__role {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 
 .work__details {
-  list-style-type: disc; /* Use disc bullet points */
-  padding-left: 1.5rem; /* Space for bullets */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* ===== CONTACT =====*/
-.contact__input {
-  width: 100%;
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-semi);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid var(--second-color);
-  outline: none;
-  margin-bottom: var(--mb-4);
+.work__details li {
+  margin-bottom: 5px;
 }
-.contact__button {
-  display: block;
-  border: none;
-  outline: none;
-  font-size: var(--normal-font-size);
-  cursor: pointer;
-  margin-left: auto;
+
+.work__tech {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+.work__tech li {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  .work__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
 
 /* ===== FOOTER =====*/
 .footer {
